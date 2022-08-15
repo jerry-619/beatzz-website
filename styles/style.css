@@ -818,7 +818,9 @@ body {
 }
 
 .navmenu .navbar.opened {
-  background: #303134 !important;
+  /* background: #303134 !important; */
+  transition: 'opacity 0.25s linear';
+   opacity: 2px
 }
 
 .navmenu nav.opened .hamburger span:nth-child(1) {
