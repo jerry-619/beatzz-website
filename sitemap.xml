@@ -1,9 +1,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://beatzz.netlify.app/index.html</loc>
+		<loc>https://beatzz.vercel.app//index.html</loc>
 	</url>
 	<url>
-		<loc>https://beatzz.netlify.app/about.html</loc>
+		<loc>https://beatzz.vercel.app//about.html</loc>
 	</url>
   
 </urlset>
