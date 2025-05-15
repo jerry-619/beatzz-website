@@ -1,12 +1,105 @@
-# React + Vite
+# Beatzz Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Beatzz Logo](public/logo.png)
 
-Currently, two official plugins are available:
+A modern, responsive website for the Beatzz music streaming application built with React and Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎵 Features
 
-## Expanding the ESLint configuration
+- **Modern Design**: Sleek, dark-themed UI with beautiful gradients and animations
+- **Fully Responsive**: Works perfectly on all devices (mobile, tablet, desktop)
+- **Smooth Animations**: Page transitions and scroll animations using Framer Motion
+- **Interactive Elements**: Dynamic components with hover effects and transitions
+- **Particle Effects**: Beautiful background particle effects
+- **SEO Friendly**: Proper meta tags and semantic HTML structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Tech Stack
+
+- **React**: Frontend library
+- **Tailwind CSS**: Utility-first CSS framework
+- **Framer Motion**: Animation library
+- **React Router**: Navigation and routing
+- **Hero Icons**: Beautiful SVG icons
+- **tsParticles**: Particle effects
+
+## 📦 Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/jerry-619/beatzz-website.git
+cd beatzz-website
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Build for production:
+```bash
+npm run build
+```
+
+## 🌐 Pages
+
+- **Home**: Landing page with features showcase
+- **Download**: Download options and version history
+- **Privacy Policy**: Privacy information and data handling
+- **Terms of Service**: Terms and conditions
+
+## 🎨 Styling
+
+The website uses a custom color scheme:
+- Primary gradient: `#165f68` to `#135d66`
+- Background: Black with gradient overlays
+- Text: White and gray shades
+
+## 📱 Responsive Breakpoints
+
+- Mobile: < 640px
+- Tablet: 640px - 1024px
+- Desktop: > 1024px
+
+## 🛠️ Project Structure
+
+```
+beatzz-website/
+├── src/
+│   ├── components/     # Reusable components
+│   ├── pages/         # Page components
+│   ├── styles/        # Global styles
+│   └── App.jsx        # Main app component
+├── public/            # Static assets
+└── index.html        # HTML template
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Developer
+
+Made with ❤️ by [Fardeen Beigh](https://github.com/jerry-619)
+
+## 🔗 Links
+
+- [Live Demo](https://beatzz.vercel.app)
+- [GitHub Repository](https://github.com/jerry-619/beatzz-website)
+- [Telegram Community](https://t.me/beatzzApp)
+
+---
+
+For any questions or support, join our [Telegram community](https://t.me/beatzzApp).
