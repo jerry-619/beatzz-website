@@ -92,7 +92,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Developer
 
-Made with ❤️ by [Fardeen Beigh](https://github.com/jerry-619)
+Made with ❤️ by [Fardeen Zahoor Beigh](https://github.com/jerry-619)
 
 ## 🔗 Links
 
