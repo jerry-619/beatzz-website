@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Download from './pages/Download';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PageTransition from './components/PageTransition';
@@ -43,6 +44,14 @@ function AnimatedRoutes() {
           element={
             <PageTransition>
               <Terms />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="*" 
+          element={
+            <PageTransition>
+              <NotFound />
             </PageTransition>
           } 
         />

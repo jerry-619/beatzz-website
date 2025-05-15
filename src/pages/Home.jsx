@@ -10,7 +10,7 @@ const BackgroundEffects = () => {
     const centerX = 50;
     const centerY = 50;
     const angle = Math.random() * Math.PI * 2;
-    const distance = Math.random() * 30 + 20; // 20-50% from center
+    const distance = Math.random() * 30 + 20;
     
     return {
       left: `${centerX + Math.cos(angle) * distance}%`,
@@ -18,31 +18,39 @@ const BackgroundEffects = () => {
     };
   };
 
+  // Get the number of notes based on screen size
+  const getNotesCount = () => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768 ? 12 : 25; // Increased number of particles
+    }
+    return 12;
+  };
+
   return (
     <>
       <div className="absolute inset-0 overflow-hidden">
         <div className="illusion-container">
-          {[...Array(5)].map((_, i) => (
+          {[...Array(3)].map((_, i) => (
             <div key={`circle-${i}`} className="illusion-circle" style={{ animationDelay: `${i * 0.5}s` }} />
           ))}
         </div>
         <div className="illusion-overlay" />
       </div>
       <div className="notes-container">
-        {[...Array(20)].map((_, i) => {
+        {[...Array(getNotesCount())].map((_, i) => {
           const position = generateRandomPosition();
           return (
             <div
               key={`note-${i}`}
-              className="absolute animate-float"
+              className="absolute particle-note"
               style={{
                 ...position,
-                animationDelay: `${(i * 0.4)}s`,
+                animationDelay: `${(i * 0.3)}s`, // Faster sequence of notes
                 transform: `rotate(${Math.random() * 360}deg)`,
                 opacity: 0
               }}
             >
-              <MusicalNoteIcon className="h-8 w-8 text-[#165f68] opacity-60" />
+              <MusicalNoteIcon className="h-4 w-4 md:h-6 md:w-6 text-[#165f68] opacity-70" />
             </div>
           );
         })}
@@ -52,14 +60,14 @@ const BackgroundEffects = () => {
 };
 
 const MockupSection = () => {
-  const [selectedImage, setSelectedImage] = useState('/src/assets/mockups/home.png');
+  const [selectedImage, setSelectedImage] = useState('/mockups/home.png');
   
   const mockups = [
-    { src: '/src/assets/mockups/home.png', title: 'Home' },
-    { src: '/src/assets/mockups/library.png', title: 'Library' },
-    { src: '/src/assets/mockups/player.png', title: 'Player' },
-    { src: '/src/assets/mockups/playlist.png', title: 'Playlist' },
-    { src: '/src/assets/mockups/search.png', title: 'Search' }
+    { src: '/mockups/home.png', title: 'Home' },
+    { src: '/mockups/library.png', title: 'Library' },
+    { src: '/mockups/player.png', title: 'Player' },
+    { src: '/mockups/playlist.png', title: 'Playlist' },
+    { src: '/mockups/search.png', title: 'Search' }
   ];
 
   return (
@@ -119,29 +127,29 @@ const MockupSection = () => {
 
 const Home = () => {
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white overflow-x-hidden">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 pt-20 md:pt-32 pb-16 md:pb-20 text-center relative overflow-hidden">
+      <section className="container mx-auto px-4 pt-20 md:pt-32 pb-16 md:pb-20 text-center relative">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-purple-500/10 opacity-50" />
         <BackgroundEffects />
         <div className="relative z-10">
           <FadeInUp>
-            <h1 className="title-text gradient-text mb-8">
+            <h1 className="title-text gradient-text mb-8 px-2">
             The Best Music Experience
             </h1>
           </FadeInUp>
           <FadeInUp delay={0.2}>
-            <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
               Beatzz is a minimalistic and easy-to-use music streaming application like Spotify/YouTube Music, but free, and no ads forever.
             </p>
           </FadeInUp>
           <FadeInUp delay={0.4}>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 px-2">
               <Link 
                 to="/download" 
-                className="gradient-button px-12 py-5 rounded-2xl font-bold text-xl flex items-center gap-3 w-full sm:w-auto justify-center"
+                className="gradient-button px-8 sm:px-12 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl flex items-center gap-3 w-full sm:w-auto justify-center"
               >
-                <ArrowDownTrayIcon className="h-7 w-7" />
+                <ArrowDownTrayIcon className="h-6 w-6 sm:h-7 sm:w-7" />
                 Download
               </Link>
             </div>
@@ -150,19 +158,19 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-20 md:py-32 relative">
+      <section className="container mx-auto px-2 sm:px-4 py-16 md:py-32 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-500/10 to-blue-500/10 opacity-30" />
         <ParticlesBackground variant="features" />
         <div className="relative z-10">
           <FadeInUp>
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 gradient-text">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 gradient-text px-2">
               Why Choose Beatzz?
             </h2>
-            <p className="text-xl text-gray-300 text-center mb-20 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-300 text-center mb-16 sm:mb-20 max-w-3xl mx-auto px-2">
               Experience music streaming like never before with our powerful features
             </p>
           </FadeInUp>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-10 px-2">
             <ScaleIn delay={0.1}>
               <FeatureCard
                 icon={<SparklesIcon className="h-10 w-10" />}
@@ -213,27 +221,27 @@ const Home = () => {
       <MockupSection />
 
       {/* Community Section */}
-      <section className="container mx-auto px-4 py-20 md:py-32 relative">
+      <section className="container mx-auto px-2 sm:px-4 py-16 md:py-32 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-500/10 to-blue-500/10 opacity-30" />
         <ParticlesBackground variant="community" />
         <div className="relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <FadeInLeft>
-              <div className="text-left">
+              <div className="text-left px-2">
                 <span className="font-medium mb-4 inline-block px-4 py-1.5 bg-[#165f68]/10 rounded-full text-sm"
                 style={{'background': 'linear-gradient(229deg,rgba(22, 95, 104, .2) 18%, rgba(30, 100, 109, .2) 88%)', color: '#165f68'}}>Join Our Community</span>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 mt-4">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 mt-4">
                   Get Support & Updates
                 </h2>
-                <p className="text-lg text-gray-400 mb-8">
+                <p className="text-base sm:text-lg text-gray-400 mb-8">
                   Join our Telegram community for instant support, latest updates, and discussions. We accept all suggestions and provide support for issues. Help us make Beatzz even better!
                 </p>
                 <a
                   href="https://t.me/BeatzzApp"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className=" px-8 py-3 rounded-lg font-medium text-base inline-flex items-center gap-2 transition-all duration-300 hover:scale-105"
-                   style={{'background': 'linear-gradient(229deg,rgba(22, 95, 104, 1) 18%, rgba(30, 100, 109, 1) 88%)'}}>
+                  className="px-6 sm:px-8 py-3 rounded-lg font-medium text-base inline-flex items-center gap-2 transition-all duration-300 hover:scale-105 w-full sm:w-auto justify-center"
+                  style={{'background': 'linear-gradient(229deg,rgba(22, 95, 104, 1) 18%, rgba(30, 100, 109, 1) 88%)'}}>
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/>
                   </svg>
@@ -243,7 +251,7 @@ const Home = () => {
             </FadeInLeft>
 
             <FadeInRight>
-              <div className="bg-[#1e2732] rounded-2xl overflow-hidden border border-white/10" style={{borderColor: '#165f68', borderWidth: '3px'}}>
+              <div className="bg-[#1e2732] rounded-2xl overflow-hidden border border-white/10 mx-2" style={{borderColor: '#165f68', borderWidth: '3px'}}>
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center">
@@ -276,28 +284,28 @@ const Home = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="container mx-auto px-4 py-20 md:py-32 text-center relative">
+      <section className="container mx-auto px-2 sm:px-4 py-16 md:py-32 text-center relative">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-purple-500/10 opacity-30" />
         <ParticlesBackground />
         <div className="relative z-10">
           <FadeInUp>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 gradient-text px-2">
               Ready to Experience Better Music?
             </h2>
-            <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto px-2">
               Join thousands of users enjoying ad-free music streaming with Beatzz
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-2">
               <Link
                 to="/download"
-                className="gradient-button px-12 py-5 rounded-2xl font-bold text-xl inline-flex items-center gap-3 w-full sm:w-auto justify-center"
+                className="gradient-button px-8 sm:px-12 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl inline-flex items-center gap-3 w-full sm:w-auto justify-center"
               >
-                <ArrowDownTrayIcon className="h-7 w-7" />
+                <ArrowDownTrayIcon className="h-6 w-6 sm:h-7 sm:w-7" />
                 Download Now
               </Link>
               <Link
                 to="/download#versions"
-                className="bg-white/5 hover:bg-white/10 backdrop-blur-xl border border-white/10 px-12 py-5 rounded-2xl font-bold text-xl inline-flex items-center gap-3 transition-all duration-300 hover:scale-105 w-full sm:w-auto justify-center"
+                className="bg-white/5 hover:bg-white/10 backdrop-blur-xl border border-white/10 px-8 sm:px-12 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl inline-flex items-center gap-3 transition-all duration-300 hover:scale-105 w-full sm:w-auto justify-center"
               >
                 View Updates
               </Link>
