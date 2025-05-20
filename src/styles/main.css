@@ -345,4 +345,9 @@
   .particle-note {
     animation-duration: 6s;
   }
+  
+  /* Hide music notes on mobile devices */
+  .notes-container {
+    display: none;
+  }
 } 
