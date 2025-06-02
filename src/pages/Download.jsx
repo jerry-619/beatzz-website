@@ -203,7 +203,6 @@ const Download = () => {
                   <a
                     href={latestVersion.downloadUrl}
                     className="gradient-button px-12 py-5 rounded-2xl font-bold text-xl flex items-center gap-3 mt-8 md:mt-0 w-full sm:w-auto justify-center"
-                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     <ArrowDownTrayIcon className="h-7 w-7" />
@@ -261,7 +260,6 @@ const Download = () => {
                         </div>
                         <a
                           href={version.downloadUrl}
-                          target="_blank"
                           rel="noopener noreferrer"
                           className="bg-white/10 hover:bg-white/20 border border-white/10 px-8 py-3 rounded-xl font-semibold text-lg flex items-center gap-2 transition-all duration-300 hover:scale-105 mt-6 sm:mt-0 w-full sm:w-auto justify-center"
                         >
