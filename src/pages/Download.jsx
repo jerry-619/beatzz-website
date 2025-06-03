@@ -12,32 +12,28 @@ const Download = () => {
   const parseChangelog = (body) => {
     if (!body) return [];
     
-    // Split the body into version sections
-    const versionSections = body.split(/##\s+v\d+\.\d+\.\d+/);
-    const features = [];
+    // Find the index of "What's Changed:"
+    const whatsChangedIndex = body.indexOf("What's Changed:");
+    if (whatsChangedIndex === -1) return [];
     
-    // Process each line
-    const lines = body.split('\n');
-    let currentSection = '';
+    // Get the content after "What's Changed:"
+    const contentAfterWhatsChanged = body.slice(whatsChangedIndex + "What's Changed:".length);
+    
+    const features = [];
+    const lines = contentAfterWhatsChanged.split('\n');
     
     lines.forEach(line => {
       const trimmedLine = line.trim();
       
-      // Skip empty lines and headers
-      if (!trimmedLine || trimmedLine.startsWith('#')) {
+      // Skip empty lines, headers, and section markers
+      if (!trimmedLine || trimmedLine === "What's Changed:") {
         return;
       }
       
-      // If line starts with "What's Changed:", start a new section
-      if (trimmedLine.startsWith("What's Changed:")) {
-        currentSection = 'changes';
-        return;
-      }
-      
-      // If it's a bullet point, add it to features
-      if (trimmedLine.startsWith('-')) {
-        const feature = trimmedLine.substring(1).trim();
-        if (feature && !feature.startsWith('-')) {  // Avoid nested bullet points
+      // If line starts with #### (level 4 header), add it as a feature
+      if (trimmedLine.startsWith('####')) {
+        const feature = trimmedLine.substring(4).trim();
+        if (feature) {
           features.push(feature);
         }
       }
@@ -203,7 +199,6 @@ const Download = () => {
                   <a
                     href={latestVersion.downloadUrl}
                     className="gradient-button px-12 py-5 rounded-2xl font-bold text-xl flex items-center gap-3 mt-8 md:mt-0 w-full sm:w-auto justify-center"
-                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     <ArrowDownTrayIcon className="h-7 w-7" />
@@ -261,7 +256,6 @@ const Download = () => {
                         </div>
                         <a
                           href={version.downloadUrl}
-                          target="_blank"
                           rel="noopener noreferrer"
                           className="bg-white/10 hover:bg-white/20 border border-white/10 px-8 py-3 rounded-xl font-semibold text-lg flex items-center gap-2 transition-all duration-300 hover:scale-105 mt-6 sm:mt-0 w-full sm:w-auto justify-center"
                         >
