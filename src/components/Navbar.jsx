@@ -116,7 +116,7 @@ const Navbar = () => {
                   Download
                 </MobileNavLink>
                 <a 
-                  href="https://github.com/beatzz" 
+                  href="https://github.com/jerry-619/beatzz-website" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-gray-400 hover:text-white transition-all duration-300 font-medium px-4 py-2.5 hover:bg-white/5 rounded-lg"
