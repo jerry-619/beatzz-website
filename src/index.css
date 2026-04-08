@@ -1,13 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Syncopate:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
   }
   body {
-    @apply bg-black text-white;
+    background-color: #000000;
+    @apply text-white;
+  }
+  h1, h2, h3, .syncopate {
+    font-family: 'Syncopate', sans-serif;
+    letter-spacing: -0.05em;
+  }
+}
+
+@layer components {
+  .glass-card-premium {
+    background-color: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .gradient-text {
+    background: linear-gradient(to right, #165f68, #34d399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+  
+  .neon-accent {
+    box-shadow: 0 0 20px rgba(22, 95, 104, 0.5);
   }
 }
 
