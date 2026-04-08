@@ -40,11 +40,10 @@ const Navbar = () => {
 
   return (
     <motion.nav 
-      style={{ backdropFilter: 'blur(5px)' }}
-      className="fixed top-0 left-0 right-0 bg-black/30 border-b border-white/5 z-50"
+      className="fixed top-4 left-4 right-4 md:left-0 md:right-0 md:top-0 z-50 glass-card-premium md:!rounded-none md:!border-t-0 md:!border-x-0 bg-black/40 backdrop-blur-3xl rounded-3xl mx-auto max-w-7xl transition-all duration-300"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16 md:h-20">
@@ -74,12 +73,13 @@ const Navbar = () => {
               href="https://t.me/beatzzApp" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-[#0088cc] hover:bg-[#0099dd] px-6 py-2.5 rounded-xl font-medium transition-all duration-300 inline-flex items-center gap-2 group"
+              className="px-6 py-2.5 rounded-xl font-bold transition-all duration-300 inline-flex items-center gap-2 group neon-accent"
+              style={{ background: 'linear-gradient(229deg,rgba(22, 95, 104, 1) 18%, rgba(30, 100, 109, 1) 88%)' }}
             >
-              <svg className="w-5 h-5 group-hover:rotate-6 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/>
               </svg>
-              <span className="group-hover:translate-x-0.5 transition-transform duration-300">Join Community</span>
+              <span className="group-hover:translate-x-0.5 transition-transform duration-300 uppercase text-xs tracking-widest">Join Community</span>
             </a>
           </div>
 
@@ -116,7 +116,7 @@ const Navbar = () => {
                   Download
                 </MobileNavLink>
                 <a 
-                  href="https://github.com/beatzz" 
+                  href="https://github.com/jerry-619/beatzz-website" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-gray-400 hover:text-white transition-all duration-300 font-medium px-4 py-2.5 hover:bg-white/5 rounded-lg"
