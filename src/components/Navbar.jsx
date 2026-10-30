@@ -87,6 +87,8 @@ const Navbar = () => {
           <button
             ref={buttonRef}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
             className="md:hidden p-2 hover:bg-white/5 rounded-lg transition-colors duration-300"
           >
             {isMenuOpen ? (

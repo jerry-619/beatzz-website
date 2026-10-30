@@ -1,0 +1,22 @@
+{
+  "name": "Beatzz - Free Music Streaming App with No Ads",
+  "short_name": "Beatzz",
+  "description": "Minimalist and 100% ad-free music streaming application for Android with background play and offline downloads.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#165f68",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+

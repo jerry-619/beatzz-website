@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../styles/main.css';
 
 const Footer = () => {
@@ -19,14 +20,14 @@ const Footer = () => {
             <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6 text-white">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <a href="/" className="hover:text-white transition-all duration-300">
+                <Link to="/" className="hover:text-white transition-all duration-300">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/download" className="hover:text-white transition-all duration-300">
+                <Link to="/download" className="hover:text-white transition-all duration-300">
                   Download
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -61,14 +62,14 @@ const Footer = () => {
             <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6 text-white">Legal</h3>
             <ul className="space-y-3">
               <li>
-                <a href="/privacy" className="hover:text-white transition-all duration-300">
+                <Link to="/privacy" className="hover:text-white transition-all duration-300">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/terms" className="hover:text-white transition-all duration-300">
+                <Link to="/terms" className="hover:text-white transition-all duration-300">
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
