@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { ArrowDownTrayIcon, InformationCircleIcon, CheckCircleIcon, ClockIcon, MusicalNoteIcon, SparklesIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import { FadeInUp, FadeInLeft, ScaleIn } from '../components/ScrollAnimation';
+import { ArrowDownTrayIcon, InformationCircleIcon, CheckCircleIcon, ClockIcon, MusicalNoteIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { FadeInUp, ScaleIn } from '../components/ScrollAnimation';
 import ParticlesBackground from '../components/ParticlesBackground';
+import { PlayStoreButton, PlayStoreWidget } from '../components/PlayStoreBadge';
 import '../styles/main.css';
 import { motion } from 'framer-motion';
 
@@ -71,7 +72,7 @@ const BackgroundEffects = () => {
 const Download = () => {
   const [versions, setVersions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
 
   const parseChangelog = (body) => {
     if (!body) return [];
@@ -165,7 +166,7 @@ const Download = () => {
               Get Beatzz <span className="gradient-text">Latest</span>
             </h1>
             <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light mb-10">
-              Step into the future of music streaming. Premium features, zero cost, and an experience built for you.
+              Step into the future of music streaming. Install directly from Google Play Store or download the standalone APK build.
             </p>
             
             {/* Hero Stats */}
@@ -182,20 +183,28 @@ const Download = () => {
             </div>
 
             {/* Quick Action Download Section */}
-            {latestVersion && (
-              <div className="flex justify-center">
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              <PlayStoreButton size="lg" />
+              {latestVersion && (
                 <a
                   href={latestVersion.downloadUrl}
-                  className="gradient-button neon-accent px-8 py-4 rounded-xl font-black text-lg flex items-center gap-3 transition-transform hover:scale-105 active:scale-95"
+                  className="gradient-button neon-accent px-8 py-4 rounded-2xl font-black text-lg flex items-center gap-3 transition-transform hover:scale-105 active:scale-95"
                   rel="noopener noreferrer"
                 >
                   <ArrowDownTrayIcon className="h-6 w-6" />
-                  DOWNLOAD NOW
+                  DOWNLOAD APK
                 </a>
-              </div>
-            )}
+              )}
+            </div>
           </FadeInUp>
         </div>
+
+        {/* Official Google Play Store Widget */}
+        <FadeInUp delay={0.1}>
+          <div className="max-w-5xl mx-auto mb-16">
+            <PlayStoreWidget />
+          </div>
+        </FadeInUp>
 
         {/* Latest Version Card */}
         {latestVersion && (
@@ -261,8 +270,10 @@ const Download = () => {
                       className="gradient-button neon-accent px-8 py-4 rounded-xl font-black text-lg flex items-center gap-4 group w-full justify-center"
                       rel="noopener noreferrer"
                     >
-                      DOWNLOAD
+                      DOWNLOAD APK
                     </a>
+
+                    <PlayStoreButton className="w-full mt-3" />
                     
                     <div className="mt-6 pt-6 border-t border-white/5 w-full flex flex-col gap-3">
                       <div className="flex justify-between items-center text-[10px]">
@@ -289,7 +300,7 @@ const Download = () => {
 
         {/* Previous Releases Grid */}
         {previousVersions.length > 0 && (
-          <div className="space-y-16">
+          <div className="space-y-16" id="versions">
             <FadeInUp>
               <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-16 px-4">
                 <div>

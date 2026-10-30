@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ArrowDownTrayIcon, BookOpenIcon, MusicalNoteIcon, CloudArrowDownIcon, BoltIcon, UserGroupIcon, SparklesIcon, ShieldCheckIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline';
 import { FadeInUp, FadeInLeft, FadeInRight } from '../components/ScrollAnimation';
 import ParticlesBackground from '../components/ParticlesBackground';
+import { PlayStoreButton, PlayStoreWidget } from '../components/PlayStoreBadge';
 import '../styles/main.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -271,20 +272,21 @@ const Home = () => {
             </FadeInUp>
             
             <FadeInUp delay={0.4}>
-              <div className="flex flex-row justify-center lg:justify-start items-center gap-3 md:gap-6 px-4 lg:px-0">
+              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-3 md:gap-4 px-4 lg:px-0">
+                <PlayStoreButton className="flex-1 sm:flex-none" />
                 <Link 
                   to="/download" 
-                  className="gradient-button px-6 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg flex items-center gap-2 md:gap-3 flex-1 sm:flex-none justify-center neon-accent group overflow-hidden relative"
+                  className="gradient-button px-6 md:px-8 py-3.5 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base flex items-center gap-2 md:gap-3 flex-1 sm:flex-none justify-center neon-accent group overflow-hidden relative"
                 >
                   <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-in-out"></div>
                   <ArrowDownTrayIcon className="h-5 w-5 md:h-6 md:w-6" />
-                  GET APP
+                  DIRECT APK
                 </Link>
                 <a 
                   href="https://t.me/beatzzApp" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="glass-card-premium px-6 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg flex items-center gap-2 md:gap-3 flex-1 sm:flex-none justify-center hover:bg-white/5 transition-all duration-300 border border-white/10"
+                  className="glass-card-premium px-6 md:px-8 py-3.5 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base flex items-center gap-2 md:gap-3 flex-1 sm:flex-none justify-center hover:bg-white/5 transition-all duration-300 border border-white/10"
                 >
                   <svg className="h-5 w-5 md:h-6 md:w-6 text-[#0088cc]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M11.944 0C5.344 0 0 5.344 0 11.944c0 6.6 5.344 11.944 11.944 11.944 6.6 0 11.944-5.344 11.944-11.944C23.888 5.344 18.544 0 11.944 0zm5.66 8.161l-1.92 9.06c-.14.63-.51.78-1.04.49l-2.92-2.15-1.41 1.36c-.16.16-.29.29-.59.29l.21-2.98 5.43-4.91c.24-.21-.05-.33-.37-.12l-6.72 4.23-2.88-.9c-.63-.2-.64-.63.13-.93l11.26-4.34c.52-.2.98.11.81.9z"/>
@@ -498,13 +500,16 @@ const Home = () => {
             <p className="text-lg sm:text-xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto px-2">
               Join thousands of users enjoying ad-free music streaming with Beatzz
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-2">
+            <div className="max-w-4xl mx-auto mb-10 px-2 text-left">
+              <PlayStoreWidget />
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-2">
               <Link
                 to="/download"
                 className="gradient-button px-8 sm:px-12 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl inline-flex items-center gap-3 w-full sm:w-auto justify-center"
               >
                 <ArrowDownTrayIcon className="h-6 w-6 sm:h-7 sm:w-7" />
-                Download Now
+                Download APK
               </Link>
               <Link
                 to="/download#versions"

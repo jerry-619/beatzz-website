@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { PlayStoreButton, PLAY_STORE_URL } from './PlayStoreBadge';
 import '../styles/main.css';
 
 const Footer = () => {
@@ -7,13 +8,13 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           <div className="text-center sm:text-left">
-            
             <h3 className="text-4xl md:text-4xl font-bold mb-4 md:mb-6 gradient-text">
               Beatzz
             </h3>
-            <p className="text-base md:text-lg text-gray-400 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-400 leading-relaxed mb-5">
               Your ultimate music streaming experience with premium features and stunning interface
             </p>
+            <PlayStoreButton size="sm" />
           </div>
           
           <div className="text-center sm:text-left">
@@ -26,8 +27,18 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/download" className="hover:text-white transition-all duration-300">
-                  Download
+                  Download APK
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={PLAY_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-all duration-300"
+                >
+                  Google Play Store
+                </a>
               </li>
             </ul>
           </div>
